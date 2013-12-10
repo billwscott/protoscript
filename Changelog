@@ -1,0 +1,19 @@
+March 11. 2008 by Kasper Ligaard <kasperligaard@gmail.com>
+- IE7 now works again: IE does not like straying commas in object literals; these have now been removed throughout (they were removed on the website, but apparently not committed to Subversion).
+- Protoscripter did not work in IE7, now it does - at least if using yui_loader.js as the bookmarklet). 
+- The following demos does not work:
+  * Close demo not working in Opera,http://code.google.com/p/protoscript/issues/detail?id=10.
+  * Move demo not working in Opera and IE, http://code.google.com/p/protoscript/issues/list?ts=1205278893&thanks=11.
+  * Animate demo not working in IE7, see http://code.google.com/p/protoscript/issues/detail?id=2.
+  * ToggleShowHide demo not working on first click in IE, see http://code.google.com/p/protoscript/issues/detail?id=3.
+
+March 7. 2008 by Kasper Ligaard <kasperligaard@gmail.com>
+- Corrected some fallout of last commit.
+- Corrected menu in download.php to link to .php (instead of .html).
+- Made download.php page more comprehensible.
+
+March 4. 2008 by Kasper Ligaard <kasperligaard@gmail.com>
+- Updated demos.php, forum.php, index.php and download.php to include Yui! 2.5.0.
+- Removed dependency on jquery.
+- Updated page download.php to reflect above changes.
+- Added this Changelog.

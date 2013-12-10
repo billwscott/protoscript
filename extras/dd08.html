@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+<title>Proto: Two Drag &amp; Drop Groups</title>
+<script type="text/javascript" src="http://yui.yahooapis.com/2.2.2/build/yahoo-dom-event/yahoo-dom-event.js"></script> 
+<script type="text/javascript" src="http://us.js2.yimg.com/us.js.yimg.com/lib/common/utils/2/utilities_2.1.1.js"></script>
+<script type="text/javascript" src="http://us.js2.yimg.com/us.js.yimg.com/lib/common/widgets/2/container/container_core_2.1.1.js"></script> 
+<script  type="text/javascript" src="scripts/proto.js"></script>
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.2.2/build/reset-fonts-grids/reset-fonts-grids.css">
+<link href="css/yui.css" rel="stylesheet" type="text/css">
+
+<style>
+p{font-size:100%;padding:0 0 .5em 0;}
+p#bottom{margin-top:40px;font-size:77%;}
+h1 {font-size:136%; padding:.2em 0 .3em 0; font-weight:bold; }
+h2 {font-size:122%; padding:.2em 0 .3em 0; font-weight:bold; color:#090;}
+h1,h2,h3,h4,h5,h6 {
+	font-family: arial, serif;
+}
+ul {
+	margin:0px;
+	padding:0px;
+}
+li { 
+	float:left;
+	list-style:none;
+	margin:10px;
+	height:75px;
+}
+.drop-here, .drop-here2 {
+	border:2px solid gray;
+	width:75px;
+	height:75px;
+	padding:10px;
+	margin:10px;
+	text-align:center;
+}
+.second, .drop-here2 {
+	border:2px solid gray;
+}
+.first {
+	border:2px solid gray;
+}
+.first:hover, .second:hover {
+	border:2px solid orange;
+}
+
+</style>
+
+<script type="text/javascript">
+var dd;
+var pageLoad = function() 
+{
+	dd = new YAHOO.proto.SimpleDD("pictureDrag", 
+		{
+			"dragClass":       "drag-me",
+			"dropClass":       "drop-here",
+			"startDrag":       handleStartDrag,
+			"onDragDrop":      handleDragDrop,
+			"onDragEnter":     handleDragEnter,
+			"onDragOut":       handleDragOut,
+			"endDrag":         handleEndDrag
+		}
+	);
+	
+};
+
+var switchit = function() {
+
+	dd.switchit("drag-me2", "drop-here2", "pictureDrag2");
+	
+};
+
+YAHOO.util.Event.addListener(window, 'load', pageLoad);
+YAHOO.util.Event.addListener('switch-button', 'click', switchit);
+
+function handleStartDrag(x,y) {
+	var dropZone = this.dropItems[0];
+	var draggedItem = this.getEl();
+	YAHOO.util.Dom.setStyle(dropZone, "borderColor", "black");
+}
+
+function handleDragEnter(e, dropId) {
+	var dropZone = YAHOO.util.Dom.get(dropId);
+	var draggedItem = this.getEl();
+	YAHOO.util.Dom.setStyle(dropZone, "backgroundColor", "#ff9900");
+}
+
+function handleDragOut(e, dropId) {
+	var dropZone = YAHOO.util.Dom.get(dropId);
+	var draggedItem = this.getEl();
+	YAHOO.util.Dom.setStyle(dropZone, "backgroundColor", "white");
+}
+
+function handleDragDrop(e, dropId) {
+	var dropZone = YAHOO.util.Dom.get(dropId);
+	var draggedItem = this.getEl();
+	YAHOO.util.Dom.setStyle(dropZone, "backgroundColor", "white");
+	var cloneOfDraggedItem = draggedItem.cloneNode(false);
+	
+	dropZone.innerHTML = "";
+	dropZone.appendChild(cloneOfDraggedItem);
+	
+	YAHOO.util.Dom.setStyle(cloneOfDraggedItem, "opacity", "0");
+	var attributes = {
+      		opacity: { to: 1 }
+   	};
+   	var fadeInAnim = new YAHOO.util.Anim(cloneOfDraggedItem, attributes, 1, YAHOO.util.Easing.easeOut);
+   	fadeInAnim.animate();
+}
+function handleEndDrag(e) {
+	var dropZone = this.dropItems[0];
+	YAHOO.util.Dom.setStyle(dropZone, "borderColor", "gray");
+	this.simpleDD.handleDefaultEndDrag(e, this);
+}
+
+</script>
+
+</head>
+
+<body>
+<div id="doc" class="yui-t7">
+
+<div id="hd"><h1>Two Drag &amp; Drop Groups</h1></div>
+
+<div id="bd">
+<h2 >Some Draggable Items</h2>
+<div>
+<ul>
+	<li class="first"><img class="drag-me" width="75" height="75" 
+			src="images/thumb_1.jpg"/></li>
+	<li class="first"><img class="drag-me" width="75" height="75" 
+			src="images/thumb_2.jpg"/></li>
+	<li class="first"><img class="drag-me" width="75" height="75" 
+			src="images/thumb_3.jpg"/></li>
+	<li class="second"><img class="drag-me2" width="75" height="75" 		
+			src="images/thumb_4.jpg"/></li>
+	<li class="second"><img class="drag-me2" width="75" height="75" 
+			src="images/thumb_5.jpg"/></li>
+	<li class="second"><img class="drag-me2" width="75" height="75"
+			src="images/thumb_6.jpg"/></li>
+</ul>
+</div>
+<div>
+<h2 style="clear:both;" >A Drop Zone for People (First 3 images)</h2>
+	<div class="drop-here">Put People Here</div>
+<h2 style="clear:both;" >A Drop Zone for Rest (Last 3 images)</h2>
+	<div class="drop-here2">Put the Rest Here</div>
+</div>
+<div>
+<button id="switch-button">Switch</button>
+</div>
+
+</div>
+</div>
+</body>
+</html>

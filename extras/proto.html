@@ -1,0 +1,639 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+   <title>YUI Base Page</title>
+	<!-- <script type="text/javascript"
+		src="http://yui.yahooapis.com/2.2.2/build/yahoo-dom-event/yahoo-dom-event.js"></script> 
+	<script type="text/javascript"
+		src="http://yui.yahooapis.com/2.2.2/build/utilities/utilities.js"></script>
+	<script type="text/javascript"
+	 	src="http://yui.yahooapis.com/2.2.2/build/container/container-min.js"></script>  -->
+	<script type="text/javascript" src="scripts/yui/yahoo.js"></script> 
+	<script type="text/javascript" src="scripts/yui/dom.js"></script> 
+	<script type="text/javascript" src="scripts/yui/event.js"></script> 
+	<script type="text/javascript" src="scripts/yui/connection.js"></script>
+	<script type="text/javascript" src="scripts/yui/animation.js"></script>
+	<script type="text/javascript" src="scripts/yui/dragdrop.js"></script>
+	<script type="text/javascript" src="scripts/yui/container.js"></script> 
+	<!-- <script  type="text/javascript" src="scripts/jquery-1.1.3.1.js"></script>-->
+	<script  type="text/javascript" src="scripts/mootools.v1.11.js"></script>
+	<script  type="text/javascript" src="scripts/moo_proto.js"></script>
+	<!-- <script  type="text/javascript" src="scripts/yui_proto.js"></script> -->
+	<script  type="text/javascript" src="scripts/proto.js"></script>
+	<!-- <script  type="text/javascript" src="scripts/cssQuery.js"></script>-->
+   <link rel="stylesheet" 
+			href="http://yui.yahooapis.com/2.2.0/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css">
+	<link href="css/proto.css" rel="stylesheet" type="text/css">
+	<style>
+		body, p, td, th, li {
+		color:#333333;
+		font-family:Arial,Helvetica,sans-serif;
+		font-size:90%;
+		}	
+	
+		.desc p{
+			line-height:1.5em;
+		}
+	
+		strong {
+			font-weight: bold;
+		}
+		.portfolio {
+			padding-left:6px;
+			padding-top:6px;
+		
+		}
+		h2 {
+			color:#5D6A2D;
+			font-size:133%;
+			margin-bottom:0.5em;
+		}
+	
+		h3 {
+			font-size:110%;
+			margin-top:8px;
+			margin-bottom:8px;
+		}
+		
+		#portfolio-list {
+			overflow:auto;
+			height: 400px;
+			padding-right: 10px;
+		}
+		#scratchpad-list {
+			overflow:auto;
+			height: 400px;
+			padding: 0px 10px 10px 10px;
+		}
+		
+		#scratchpad-list img {
+			margin:0px 10px 10px 10px;
+		}
+						
+		.closed-title {
+			clear:both;
+			padding-left:20px;			
+			background: #DDDDDD url(http://us.i1.yimg.com/us.yimg.com/i/nt/ic/ut/bsc/menuarorght8_nrm_1.gif) 
+							no-repeat scroll 0px 5px;
+		}
+		.opened-title {
+			clear:both;
+			padding-left:20px;			
+			background: #DDDDDD url(http://us.i1.yimg.com/us.yimg.com/i/nt/ic/ut/bsc/menuarodwn8_nrm_1.gif) 
+							no-repeat scroll 0px 5px;
+		}
+
+		.not-dragged-over {
+			border:2px solid transparent;
+		}
+		.dragged-over {
+			border:2px solid blue;
+		}
+		#about-bill_c.yui-panel-container.shadow .underlay { background-color:#999; }
+		#about-bill.yui-panel { border:none; overflow:visible; background-color:transparent; }
+
+		/* Apply styles to the close icon to anchor it to the left side of the header */
+		#about-bill.yui-panel .container-close { top:3px; left:4px; height:18px; width:17px; background-image:url(http://developer.yahoo.com/yui/examples/container/assets/img/aqua-hd-close.gif); }
+		#about-bill.yui-panel .container-close:hover { background-image:url(http://developer.yahoo.com/yui/examples/container/assets/img/aqua-hd-close-over.gif); }
+
+		/* Style the header and apply the rounded corners, center the text */
+		#about-bill.yui-panel .hd { padding:3px 0px 0px 0px; border-left:1px solid gray; border-right:1px solid gray; border-top:0px; border-bottom: 0px; background:transparent url(http://developer.yahoo.com/yui/examples/container/assets/img/aqua-hd-bg.gif); color:#000; height:22px; text-align:center; overflow:visible; }
+		#about-bill.yui-panel .hd span { vertical-align:middle; line-height:22px; }
+		#about-bill.yui-panel .hd .tl { width:7px; height:22px; top:0; left:0; background:transparent url(http://developer.yahoo.com/yui/examples/container/assets/img/aqua-hd-lt.gif); position:absolute; }
+		#about-bill.yui-panel .hd .tr { width:7px; height:22px; top:0; right:0; background:transparent url(http://developer.yahoo.com/yui/examples/container/assets/img/aqua-hd-rt.gif); position:absolute; }
+
+		/* Style the body and footer */
+		#about-bill.yui-panel .bd { overflow:hidden; padding:4px; border:1px solid #aeaeae; background-color:#FFF; }
+		#about-bill.yui-panel .ft { font-size:75%; color:#666; padding:2px; overflow:hidden; border:1px solid #aeaeae; border-top:none; background-color:#dfdfdf; }
+
+
+	</style>
+</head>
+<body>
+<div id="doc2" class="yui-t7">
+
+	<div id="hd">
+		<div id="yahoo-links">
+			<a href="http://yahoo.com">Yahoo!</a>&nbsp;&nbsp;&nbsp;
+			<a href="http://my.yahoo.com">My Yahoo!</a>&nbsp;&nbsp;&nbsp;
+			<a href="http://mail.yahoo.com">Mail</a>
+		</div>
+		<div id="mhead">
+			<div class="inner">
+
+				<div class="lpan clrfix">
+				<a id="logo" href="/">Yahoo! Teachers</a>
+				<a id="tellfriend" href="mailto:?subject=Join me in Yahoo! Teachers&amp;body=I've just learned about Yahoo!'s new free service exclusively for teachers. It will let us create and share standards-based materials and connect to other teachers. You can learn more at  http://teachers.yahoo.com.">Tell a friend about Yahoo! Teachers.</a>
+				</div>
+				<div class="rpan clrfix">
+					<a id="help" href="javascript:void(0)">Help</a>
+					<div id="welcome">Signed in as <strong>billwaynescott</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://login.yahoo.com/config/login?logout=1&amp;.done=http%3A%2F%2Fbeta.teachers.yahoo.com%2Fportfolio">Sign Out</a></div>
+				</div>
+				<div class="clr"></div>
+				<div class="vsmall"></div>
+				<ul id="nav">
+					<li><a href="/">Home</a></li>
+					<li><em>Portfolio</em></li>
+					<li><a href="/explore">Explore</a></li>
+					<li><a href="/connect">Connect</a></li>
+					<li><a href="/howto">How to</a></li>
+				</ul>
+
+				<form id="search-box" method="post" action="/search">
+					<input type="text" name="searchtext" id="search-text" value="" />
+					<input type="submit" name="submit" id="search-submit" value="Search" />
+				</form>
+			</div>
+		</div>
+	</div> <!-- head -->
+
+	<div id="bd">
+		<!-- PROFILE AREA -->
+		<div class="yui-g">
+			<div class="idmini clrfix" id="idcard-mini">
+			<div class="icon not-dragged-over"><img src="http://img.avatars.yahoo.com/users/1OcodbvxTAAIBJAFF8BKTNJN4Eg==.96.jpg" id="idmini-icon"/></div>
+			<div class="desc">
+			<p class="name"><a href="javascript:void(0);">Bill Scott</a></p>
+			<p>Total Projects <strong>12</strong></p>
+			<p>Total Points <strong>24</strong></p>
+			</div>
+		</div>
+
+		</div>
+
+		<!-- My Portfolio Area & My Scratchpad-->
+		<div class="yui-ge">
+			<!-- My Portofolio -->
+			<div id="portfolio" style="margin-top:20px;border:1px solid #BFD17D;" class="yui-u first portfolio">
+				<h2>My Portfolio</h2>
+
+				<div><p>Sort by: Recent | Alpha | Points</p></div>
+
+				<div id="portfolio-list">
+					
+					<div class="proj">
+						<h3>
+							<span id="title-1" class="proj-title opened-title" style="float:left;">Project One</span>
+							<span style="float:right;">
+								<a class="view-button" href="javascript:void(0);">view</a> | 
+								<a class="delete-button" href="javascript:void(0);">delete</a>
+							</span>
+						</h3>
+						<div class="proj-summary" id="body-1" style="clear:both;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin tempor, lectus aliquet ornare suscipit, diam turpis suscipit velit, rhoncus feugiat purus metus gravida turpis. Nam nisl. Nulla et est in neque laoreet consequat. Quisque quis pede. Curabitur pretium. Etiam varius. Suspendisse tempus nisl eu lectus. Integer et velit. Quisque quis magna. Nunc pellentesque pharetra ligula. Morbi semper.</div>
+					</div>
+				
+
+					<div class="proj">
+						<h3 style="clear:both;">
+							<span id="title-2" class="proj-title opened-title" style="float:left;">Project Two</span>
+							<span style="float:right;">
+								<a class="view-button" href="javascript:void(0);">view</a> | 
+								<a class="delete-button" href="javascript:void(0);">delete</a>
+							</span>
+						</h3>
+						<div class="proj-summary" id="body-2"  style="clear:both;">Quisque nunc. In ac urna egestas arcu egestas imperdiet. Donec id erat id nulla molestie venenatis. Nam a quam. Nulla ornare. Fusce dignissim ultricies turpis. Fusce molestie odio ac eros. Nunc auctor massa in metus. Etiam mollis lorem in eros. Aliquam mi. Nam feugiat ante et felis.</div>
+					</div>
+
+					<div class="proj">
+						<h3 style="clear:both;">
+							<span id="title-3" class="proj-title opened-title" style="float:left;">Project Three</span>
+							<span style="float:right;">
+								<a class="view-button" href="javascript:void(0);">view</a> | 
+								<a class="delete-button" href="javascript:void(0);">delete</a>
+							</span>
+						</h3>
+						<div  class="proj-summary" id="body-3" style="clear:both;">Maecenas est mauris, volutpat sed, sollicitudin sed, dignissim ac, risus. Praesent rutrum gravida tortor. In in mi. Donec porttitor massa ut velit. Cras mollis sollicitudin quam. Cras felis sapien, dictum et, auctor eget, volutpat at, magna. Nunc id augue non quam varius molestie. Vestibulum quis ligula. Nunc semper. Vivamus ut turpis vel lorem vulputate sagittis. Proin tincidunt elit vitae augue tempus sagittis. Ut convallis nunc ut metus. Vestibulum dictum. Sed posuere est quis arcu. Suspendisse vitae nibh pretium velit lacinia venenatis. Nullam mattis congue neque. Vestibulum mattis, mauris quis eleifend ornare, ligula lectus ullamcorper enim, vel tempor tellus eros sed dui.</div>
+					</div>
+					
+				</div>
+				
+			</div>
+			<!-- My Scratchpad -->
+			<div style="margin-top:20px;border:1px solid #BFD17D;" class="yui-u">
+				<h2>Scratchpad</h2>
+				<div id="scratchpad-list">
+					<img src="images/thumb_1.jpg" alt="scratch-1"/>
+					<img src="images/thumb_2.jpg" alt="scratch-2"/>
+					<img src="images/thumb_3.jpg" alt="scratch-3"/>
+					<img src="images/thumb_4.jpg" alt="scratch-4"/>
+					<img src="images/thumb_5.jpg" alt="scratch-5"/>
+					<img src="images/thumb_6.jpg" alt="scratch-6"/>
+					<img src="images/thumb_7.jpg" alt="scratch-7"/>
+					<img src="images/thumb_8.jpg" alt="scratch-8"/>
+					<img src="images/thumb_9.jpg" alt="scratch-9"/>
+					<img src="images/thumb_10.jpg" alt="scratch-10"/>
+					<img src="images/thumb_11.jpg" alt="scratch-11"/>
+					<img src="images/thumb_12.jpg" alt="scratch-12"/>
+					<img src="images/thumb_13.jpg" alt="scratch-13"/>
+					<img src="images/thumb_14.jpg" alt="scratch-14"/>
+					<img src="images/thumb_15.jpg" alt="scratch-15"/>
+					<img src="images/thumb_16.jpg" alt="scratch-16"/>
+				</div>
+			</div>
+		</div>
+
+		<div id='people-network' class="yui-g">
+			PEOPLE IN YOUR NETWORK
+		</div>
+		
+		<div class="yui-g">
+			PROJECTS FROM PEOPLE LIKE YOU
+		</div>
+
+	</div>
+	<div id="ft">Footer is here.</div>
+	</div>
+
+<script type="text/javascript">
+	
+	ProtoScript.Config_Start = {
+		'#portfolio-list': {
+			AjaxInnerHtml: {
+				url: "http://localhost/~bscott/yprotokit/getTrips.php?query=Amsterdam&start=1&results=4"
+			}
+		}
+	};
+	
+	ProtoScript.JQueryYUIConfig = {		
+		'div.desc a': {
+			Click: {},
+			onClick: {
+				Popup: {
+					id: 'about-bill',
+					width: '510px',
+					effect: {effect:YAHOO.widget.ContainerEffect.FADE, duration: 0.2},
+					hd: 'Bill Scott Yapping',
+					bd: 'http://farm1.static.flickr.com/46/113016311_39e40803ec.jpg',
+					//bd: 'The portfolio contains your current set of projects.',
+					ft: ''
+				}
+			}
+		},
+		
+		// $drag: current drag src object
+		// $dragproxy: current object being dragged around
+		// $drop: current drop target being interacted with
+		'#scratchpad-list img': {
+			DragDrop: {
+				dropTarget: '#idcard-mini div.icon, h2:contains(My Portfolio)',
+				// dropTarget: '#idcard-mini div.icon',
+				
+				onDragEnter: {
+					target: '$drop',
+					ReplaceClass: {
+						removeClass: 'not-dragged-over',
+						addClass: 'dragged-over'
+					}
+				},
+				onDragOut: {
+					target: '$drop',
+					ReplaceClass: {
+						removeClass: 'dragged-over',
+						addClass: 'not-dragged-over'
+					}
+				},
+				onDragDrop: {
+					target: '$drop',
+					InnerHtml: {
+						copyFrom: '$drag'
+					},
+					Fade: {
+						opacity: {to: 0.5},
+						duration: 0.1,
+						onComplete: {	
+							Fade: {
+								opacity: {to: 1.0},
+								duration: 0.1,
+								onComplete: {
+									target:'$drag',
+									Move: { 
+										points: { by: [10, 0] } 
+									},
+									Fade:{ opacity: {to:0.8}}
+								}
+							}
+						}
+					},
+					ReplaceClass: {
+						removeClass: 'dragged-over',
+						addClass: 'not-dragged-over'
+					}
+				}
+			}
+		},
+
+		'div#portfolio-list h3 + div': {
+			Click: {
+				target: 'div#portfolio-list h3>span:first-child' // when proj title is clicked
+				//delay:  1,
+			},
+			onClick: {
+				ToggleOpenClose: {},
+				ToggleClass: {
+					target: 'div#portfolio-list h3>span:first-child',
+					styleClass: 'closed-title',
+					otherStyleClass: 'opened-title'
+				}
+			}
+		},
+			
+		//fade these objects when click occurs on Click target
+		'div#portfolio-list > div': {
+			Click: {
+				target: 'div#portfolio-list h3 a:contains("delete")' // when delete is clicked				
+			},
+			onClick: {
+				Fade: {
+					duration: 1,
+					onComplete: {
+						Close: {}
+					}
+				},
+				Move: { 
+					points: { by: [10, 0] } 
+				}
+			}
+		},
+		
+		'#idmini-icon': {
+			Mouseover: {},
+			onMouseover: {
+				Fade: {
+					opacity: {to: 0.5},
+					duration: 0.1,
+					onComplete: {	
+						Fade: {
+							opacity: {to: 1.0},
+							duration: 0.1
+						}
+					}
+				}
+			}
+		},
+		
+		'div#portfolio-list': {
+			// popup a view of the contents
+			Click: {
+				target: 'div#portfolio-list h3 a:contains("view")'					
+			},
+			onClick: {
+				Popup: {
+					width: '510px',
+					fixedcenter: false,
+					context: ['div#portfolio-list h3 a:contains("view")', 'tr', 'tl'],
+					effect: {effect:YAHOO.widget.ContainerEffect.FADE, duration: 0.2},
+					hd: 'Project Summary',
+					bd: 'div#portfolio-list h3 + div',
+					ft: ''
+				}					
+			}
+		}	
+	};
+
+	ProtoScript.YUIConfig = {		
+		'div.desc a': {
+			Click: {},
+			onClick: {
+				Popup: {
+					id: 'about-bill',
+					width: '510px',
+					effect: {effect:YAHOO.widget.ContainerEffect.FADE, duration: 0.2},
+					hd: 'Bill Scott Yapping',
+					bd: 'http://farm1.static.flickr.com/46/113016311_39e40803ec.jpg',
+					//bd: 'The portfolio contains your current set of projects.',
+					ft: ''
+				}
+			}
+		},
+		
+		// $drag: current drag src object
+		// $dragproxy: current object being dragged around
+		// $drop: current drop target being interacted with
+		'#scratchpad-list img': {
+			DragDrop: {
+				// dropTarget: '#idcard-mini div.icon, h2:contains(My Portfolio)',
+				dropTarget: '#idcard-mini div.icon',
+				
+				onDragEnter: {
+					target: '$drop',
+					ReplaceClass: {
+						removeClass: 'not-dragged-over',
+						addClass: 'dragged-over'
+					}
+				},
+				onDragOut: {
+					target: '$drop',
+					ReplaceClass: {
+						removeClass: 'dragged-over',
+						addClass: 'not-dragged-over'
+					}
+				},
+				onDragDrop: {
+					target: '$drop',
+					InnerHtml: {
+						copyFrom: '$drag'
+					},
+					Fade: {
+						opacity: {to: 0.5},
+						duration: 0.1,
+						onComplete: {	
+							Fade: {
+								opacity: {to: 1.0},
+								duration: 0.1,
+								onComplete: {
+									target:'$drag',
+									Move: { 
+										points: { by: [10, 0] } 
+									},
+									Fade:{ opacity: {to:0.8}}
+								}
+							}
+						}
+					},
+					ReplaceClass: {
+						removeClass: 'dragged-over',
+						addClass: 'not-dragged-over'
+					}
+				}
+			}
+		},
+
+		'div.proj-summary': {
+			Click: {
+				target: 'span.proj-title' // when proj title is clicked
+				//delay:  1,
+			},
+			onClick: {
+				ToggleOpenClose: {},
+				ToggleClass: {
+					target: 'span.proj-title',
+					styleClass: 'closed-title',
+					otherStyleClass: 'opened-title'
+				}
+			}
+		},
+			
+		//fade these objects when click occurs on Click target
+		'div.proj': {
+			Click: {
+				target: 'a.delete-button' // when delete is clicked				
+			},
+			onClick: {
+				Fade: {
+					duration: 1,
+					onComplete: {
+						Close: {}
+					}
+				},
+				Move: { 
+					points: { by: [10, 0] } 
+				}
+			}
+		},
+		
+		'img#idmini-icon': {
+			Mouseover: {},
+			onMouseover: {
+				Fade: {
+					opacity: {to: 0.5},
+					duration: 0.1,
+					onComplete: {	
+						Fade: {
+							opacity: {to: 1.0},
+							duration: 0.1
+						}
+					}
+				}
+			}
+		},
+		
+		'div#portfolio-list': {
+			// popup a view of the contents
+			Click: {
+				target: 'a.view-button'				
+			},
+			onClick: {
+				Popup: {
+					width: '510px',
+					fixedcenter: false,
+					context: ['a.view-button', 'tr', 'tl'],
+					effect: {effect:YAHOO.widget.ContainerEffect.FADE, duration: 0.2},
+					hd: 'Project Summary',
+					bd: 'div.proj-summary',
+					ft: ''
+				}					
+			}
+		}	
+	};
+		
+	YAHOO.util.Event.onDOMReady( function() { 
+
+		// registers the jQuery Selector and the YUI behavior set
+		// ProtoScript.Core.registerBehaviorSet($, YAHOO.protoscript);
+		// $proto(ProtoScript.YUIConfig);
+		$proto('img#idmini-icon', {
+			Mouseover: {},
+			onMouseover: {
+				Fade: {
+					opacity: {to: 0.5},
+					duration: 0.1,
+					onComplete: {	
+						Fade: {
+							opacity: {to: 1.0},
+							duration: 0.1
+						}
+					}
+				}
+			}
+		});
+		$proto('img#idmini-icon', {
+			Mouseover: {},
+			onMouseover: {
+				Fade: {
+					opacity: {to: 0.5},
+					duration: 0.1
+				}
+			},
+			Mouseout: {},
+			onMouseout: {
+				Fade: {
+					opacity: {to: 1.0},
+					duration: 0.1
+				}
+			}
+		});
+		
+		// registers the MooTools Selector and the YUI behavior set
+		// ProtoScript.Core.registerBehaviorSet($ES, YAHOO.protoscript);
+		// $proto(ProtoScript.YUIConfig);
+
+		// registers the CSSQuery Selector and the YUI behavior set
+		// ProtoScript.Core.registerBehaviorSet(cssQuery, YAHOO.protoscript);
+		// $proto(ProtoScript.YUIConfig);
+
+		// registers the MooTools Selector and the MooTools behavior set
+		ProtoScript.Core.registerBehaviorSet($ES, MooBehaviors);
+		$proto('img#idmini-icon', {
+			Click: {},
+			onClick: {
+				Fade: {
+					start: 1,
+					end: 0.5,
+					onComplete: {	
+						Fade: {
+							start: 0.5,
+							end: 1
+						}
+					}
+				}
+			}
+		});
+		
+		//--- invoke behaviors on single object set
+		// $proto('#portfolio-list', {
+		// 	AjaxInnerHtml: {
+		// 		url: "http://localhost/~bscott/yprotokit/getTrips.php?query=Amsterdam&start=1&results=4"
+		// 	}
+		// });
+		
+		// Delete a project
+		// $proto({
+		// 	'div#portfolio-list > div': {
+		// 		Click: {
+		// 			target: 'div#portfolio-list h3 a:contains("delete")' // when delete is clicked				
+		// 		},
+		// 		onClick: {
+		// 			Fade: {
+		// 				duration: 1,
+		// 				onComplete: {
+		// 					Close: {}
+		// 				}
+		// 			},
+		// 			Move: { 
+		// 				target: 'div#portfolio-list h3 a:contains("delete")',
+		// 				points: { by: [10, 0] } 
+		// 			}
+		// 		}
+		// 	}
+		// });
+		// // 
+		// // Open/Close a project
+		// $proto('div#portfolio-list h3 + div', {
+		// 		Click: {
+		// 			target: 'div#portfolio-list h3>span:first-child',
+		// 		},
+		// 		onClick: {
+		// 			ToggleOpenClose: {},
+		// 			ToggleClass: {
+		// 				target: 'div#portfolio-list h3>span:first-child',
+		// 				styleClass: 'closed-title',
+		// 				otherStyleClass: 'opened-title'
+		// 			}
+		// 		}
+		// });
+	});
+</script>
+
+</body>
+</html>

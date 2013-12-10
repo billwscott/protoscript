@@ -1,0 +1,79 @@
+<!doctype html public "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Protoscript - Demos</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript" src="http://yui.yahooapis.com/2.3.0/build/utilities/utilities.js"></script> 
+
+<script  type="text/javascript" src="scripts/jquery-1.1.3.1.js"></script>
+<script  type="text/javascript" src="scripts/yui_proto.js"></script>
+<script  type="text/javascript" src="scripts/proto.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.2.0/build/reset-fonts-grids/reset-fonts-grids.css">
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.3.0/build/base/base-min.css">
+
+<link href="css/yui.css" rel="stylesheet" type="text/css">
+<link href="css/protoscript-site.css" rel="stylesheet" type="text/css">
+
+
+</head>
+<body>
+	
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	 "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+	<head>
+	   <title>Test Prototscript UI</title>
+	   <link rel="stylesheet" href="http://yui.yahooapis.com/2.3.0/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css">
+	</head>
+	<body>
+	<div id="doc" class="yui-t7">
+	   <div id="hd">
+		</div>
+	   <div id="bd">
+		<div class="yui-g">
+			
+			
+			<div style="border:1px solid gray;font-family:arial;font-size:12px;margin:10px; width:540px;">
+				<div style="margin-top:10px;">
+					<label style="text-align:right;padding:4px;float:left;width:150px;">For elements matching:</label>
+					<input style="padding:4px;border:1px solid gray;float:left;width:300px;" id="the-query-field" type="text"/>
+					<button id="find-elems" style="border:1px solid gray;float:right;margin-top:2px;margin-right:10px;">Find</button>
+				</div>
+				<div style="clear:both;"></div>
+				<div style="margin-top:10px;">
+					<label style="text-align:right;padding:4px;float:left; width:150px;">Do the following:</label>
+					<textarea style="padding:4px;border:1px solid gray;width:300px;height:200px;float:left;" id="the-script-field"></textarea>
+				</div>
+				<div style="clear:both;"></div>
+				<button style="border:1px solid gray;margin-bottom:10px;margin-top:10px; margin-left:158px;float:left" id="execute-script-button">Add Behaviors</button>
+				<div style="clear:both;"></div>
+			</div>
+
+		</div>
+	   <div id="ft"></div>
+	</div>
+
+<script>
+	YAHOO.util.Event.onDOMReady( function() { 
+
+		// // registers the jQuery Selector and the YUI behavior set
+		// ProtoScript.Core.registerBehaviorSet($, YAHOO.protoscript);
+		// $proto('img#avatar', {
+		// 	Click: {},
+		// 	onClick: {
+		// 		Fade: {
+		// 			opacity: {to: 0},
+		// 			onComplete: {Close : {} },
+		// 		}
+		// 	}
+		// });
+		
+	});
+</script>
+
+</body>
+
+</html>

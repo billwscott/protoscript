@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+<title>SimpleDD: Simplified Drag and Drop</title>
+<link href="http://us.js2.yimg.com/us.js.yimg.com/lib/common/css/fonts_2.0.0-b4.css" rel="stylesheet" type="text/css">
+<style>
+p{font-size:100%;padding:0 0 .5em 0;}
+p#bottom{margin-top:40px;font-size:77%;}
+h1 {font-size:136%; padding:.2em 0 .3em 0; font-weight:bold; }
+h2 {font-size:122%; padding:.2em 0 .3em 0; font-weight:bold; color:#090;}
+h1,h2,h3,h4,h5,h6 {
+	font-family: arial, serif;
+}
+table thead td { border: 1px solid #DDDDDD; background-color: #EEEEEE;}
+table td { padding: 0px; vertical-align: top; border: 1px solid #DDDDDD; }
+</style>
+
+</head>
+
+<body>
+<div id="doc" class="yui-t7">
+
+<div id="hd"><h1>SimpleDD: Simplified Drag and Drop for Prototyping</h1></div>
+
+<div id="bd">
+<h2>Overview</h2>
+<p>The Yahoo! User Interface Library has a number of nice features such as drag &amp; drop and animation. Often, when you are wanting to prototype an HTML page, it would be nice to be able to sprinkle in a dash of drag &amp; drop or decorate elements with animation.</p>
+
+<p>The <em>YAHOO.proto.SimpleDD</em> makes it easy to add drag and drop to an HTML page.</p>
+
+<h2>Examples</h2>
+      <p>The following examples shows the progression of an HTML page from plain markup to full drag and drop with animated drop.</p>
+      <ul id="examples">
+      <li><a href="dd01.html">Simple Mockup - No Drag and Drop</a>: Step one. Start with a simple HTML page.</li>
+      <li><a href="dd02.html">Default Drag and Drop</a>: Step two. Add a <em>YAHOO.proto.SimpleDD</em> to the page to get basic drag &amp; drop functionality.</li>
+      <li><a href="dd03.html">Customized Drag and Drop - No Animation</a>: Step three. Add some custom logic to animate a drop invitation.</li>
+      <li><a href="dd04.html">Customized Drag and Drop - With Animation</a>: Step four. Customize the drop further by animating the drop.</li>    
+      </ul>
+      <p>Here are some additional examples:</p>
+      <ul>
+      <li><a href="dd05.html">The simplest page possible with Drag and Drop</a>: No configuration parameters passed.</li>    
+      <li><a href="dd06.html">Two Drag and Drop groups.</a>: Demonstrates how to have different groups for of drag &amp; drop interactions.</li>    
+      </ul>
+      <h2>Usage</h2>
+      
+      <h3>Getting Started</h3>
+      <p>To use the SimpleDD component, include the source file for SimpleDD and its dependencies in your web page with the following script tags:</p>
+      <pre>
+&lt;script src="yahoo.js"&gt;&lt;/script&gt; 
+&lt;script src="event.js"&gt;&lt;/script&gt;  
+&lt;script src="container_core.js"&gt;&lt;/script&gt;  
+&lt;script src="dom.js"&gt;&lt;/script&gt;  
+&lt;script src="animation.js"&gt;&lt;/script&gt; 
+&lt;script src="dragdrop.js"&gt;&lt;/script&gt; 
+
+&lt;!-- Source file --&gt;
+&lt;script src="proto.js"&gt;&lt;/script&gt;      
+      </pre>
+      
+      <p>The SimpleDD object is defined by YAHOO.proto.SimpleDD.</p>
+
+
+
+      <h3>Instatiating the SimpleDD</h3>
+      <p>The most basic way to add drag &amp; drop to the page is to tell the <em>SimpleDD</em> object what CSS class name marks the draggable items and which CSS class name marks the drop sites. The configuration parameters: <em>dragClass</em> and <em>dropClass</em> define these areas of the page.</p>
+      <pre>
+      	var dd = new YAHOO.proto.SimpleDD("pictureDragger",
+		{
+			"dragClass":       "dragme",
+			"dropClass":       "drophere"
+		}
+	);
+	
+	[html markup]
+	
+	&lt;div id="first-item" class="dragme"&gt;First Item&lt;/div&gt;
+	&lt;div id="second-item" class="dragme"&gt;Second Item&lt;/div&gt;
+	&lt;div id="Third-item" &gt;Second Item&lt;/div&gt;
+	&lt;div id="drop-site" class="drophere"&gt;Drop It Here!&lt;/div&gt;
+	</pre>
+	<p>The first parameter defines the name of this SimpleDD instance. It is used to define an interaction group. All items registered in the SimpleDD (both draggable and drop sites) will work together in the same interaction group. If you need a second set of drag items with different targets, then define a new SimpleDD with a different interaction group name.</p>
+	<p>In this example the DIVs <em>first-item</em> and <em>second-item</em> will be draggable because they share the class name <em>dragme</em> (passed to the SimpleDD constructor).<p> However, the DIV <em>third-item</em> will not be draggable since it does not have this class name.</p>
+	
+	<p>Generally you will create a SimpleDD instance in the onload event for the document's body.<p>
+	<pre>
+	&lt;script type="text/javascript"&gt;
+		var pageLoad = function() 
+		{
+			var dd = new YAHOO.proto.SimpleDD("pictureDrag");
+		}
+		YAHOO.util.Event.addListener(window, 'load', pageLoad);
+
+	&lt;/script&gt;
+ 		this.onMouseDownHandler = this.cfg.getProperty("onMouseDown");
+ 		this.startDragHandler = this.cfg.getProperty("startDrag");
+ 		this.onDragHandler = this.cfg.getProperty("onDrag");
+ 		this.onDragEnterHandler = this.cfg.getProperty("onDragEnter");
+ 		this.onDragOverHandler = this.cfg.getProperty("onDragOver");
+ 		this.onDragOutHandler = this.cfg.getProperty("onDragOut");
+ 		this.onDragDropHandler = this.cfg.getProperty("onDragDrop");
+ 		this.endDragHandler = this.cfg.getProperty("endDrag");
+ 		this.onMouseUpHandler = this.cfg.getProperty("onMouseUp");
+
+	</pre>
+	  <h3>Configuring the SimpleDD component</h3>
+	  <p>When instantiating the SimpleDD object, the second parameter to the constructor is a YAHOO.Config object. Here are the attributes you may set:</p>
+	  <table>
+	  <thead><tr><td>Property</td><td>Default Value</td><td>Description</td></tr></thead>
+	  <tbody>
+	  <tr><td>dragClass</td><td>dragme</td><td>Any elements with this classname will be draggable.</td></tr>
+	  <tr><td>dropClass</td><td>drophere</td><td>Any elements with this classname will be a valid drop site for the draggable items.</td></tr>
+	  
+	  <tr><td>onMouseDown</td><td>null</td><td>The JavaScript function to call for this event. The mousedown does not always result in a drag operation.</td></tr>
+	  
+	  <tr><td>onStartDrag</td><td>null</td><td>The JavaScript function to call for this event. Occurs after a mouse down and the drag threshold has been met. The drag threshold default is either 3 pixels, or 1 second of holding the mousedown.</td></tr>
+
+	  <tr><td>onDrag</td><td>null</td><td>The JavaScript function to call for this event. Occurs every mousemove event while dragging.</td></tr>
+
+	  <tr><td>onDragEnter</td><td>null</td><td>The JavaScript function to call for this event. Occurs when the dragged object first interacts with another targetable drag and drop object.</td></tr>
+
+	  <tr><td>onDragOver</td><td>null</td><td>The JavaScript function to call for this event. Fires every mousemove event while over a drag and drop object.</td></tr>
+
+	  <tr><td>onDragOut</td><td>null</td><td>The JavaScript function to call for this event. Fires when a dragged object is no longer over an object that had the onDragEnter fire.</td></tr>
+
+	  <tr><td>onDragDrop</td><td>null</td><td>The JavaScript function to call for this event. Fires when the dragged objects is dropped on another.</td></tr>
+
+	  <tr><td>endDrag</td><td>By default set to an internal method that prevents the endDrag from moving the original location of the dragged item. Currently assumes a proxy style drag.</td><td>The JavaScript function to call for this event. Fires on the mouseup event after a drag has been initiated (startDrag fired).</td></tr>
+
+	  <tr><td>onMouseUp</td><td>null</td><td>The JavaScript function to call for this event. Fires on the mouseup event whether or not a drag was initiated. </td></tr>
+
+
+	  </tbody>
+	  </table>
+
+      <h2>Downloading</h2>
+      <p>You can download the proto.js file here:</p>
+	  <ul>
+	  <li><a href="scripts/proto.js">proto.js</a></li>
+	  <li><a href="proto-0.1.0.zip">proto-0.1.0.zip</a> - Examples & Component (Updated 7/09/06)</li>
+	  </ul>
+
+
+</div>
+</div>
+</body>
+</html>

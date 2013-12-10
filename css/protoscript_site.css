@@ -1,0 +1,98 @@
+div#hd {
+	background-image: url(../images/headergradient.gif);
+	background-repeat: repeat-x; 
+	font-family:arial,helvetica,clean,sans-serif;
+	font-size:13px;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:normal;
+}
+
+ul#hmenu {
+  margin: 5px 10px 0px 0px;
+  padding: 0;
+  float: right;
+  text-transform: lowercase;
+}
+
+ul#hmenu li {
+  list-style: none;
+  float: left;
+}
+
+ul#hmenu a {
+	padding: 0 1em;
+	line-height: 2.1em;
+	/*  background: url(../images/mainNavBorder.gif) repeat-y left top;*/
+	text-decoration: none;
+	color:#FFFFFF;
+	font-size:1.1em;
+	font-weight:bold;
+	float: left;
+	display: block;
+	text-align:center;
+	text-shadow:#2A2A2F 2px 2px 1px;
+}
+
+ul#hmenu a:hover {
+	text-decoration:underline;
+}
+
+ul#hmenu .first a {
+  background: none;
+}
+/*
+ul#menu li a:hover, ul#menu li a:active {
+	background-position:left top;
+	text-decoration:underline;
+}
+ul#menu li a.selected {
+	background-position:left bottom;
+}
+*/
+#promo {
+	background-color: white;
+}
+#bd {
+	padding-top: .1em;
+}
+#promo {
+	margin-top:10px;
+}
+div.yui-t7 {
+	font-size:14px;
+}
+
+div#columnone {
+	margin-top:15px;
+    padding: 0px 10px 10px 10px;
+	border: 1px solid #B6CDE1;
+}
+div#columntwo {
+	margin-top:15px;
+	padding: 0px 0px 10px 10px;
+/*	border: 1px solid #B6CDE1;*/
+	
+}
+
+div#columntwo div {
+	margin-top:15px;
+	padding: 0px 10px 10px 10px;
+		border: 1px solid #B6CDE1;
+	
+}
+
+pre {
+	font-size:10px;
+}
+
+#bd ul, #bd li {
+	margin-left:16px;
+}
+
+#bd h2 {
+	margin-top:10px;
+}

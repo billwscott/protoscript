@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+<title>Animation</title>
+<script type="text/javascript" src="http://yui.yahooapis.com/2.2.2/build/yahoo-dom-event/yahoo-dom-event.js"></script> 
+<script type="text/javascript" src="http://us.js2.yimg.com/us.js.yimg.com/lib/common/utils/2/utilities_2.1.1.js"></script>
+<script type="text/javascript" src="http://us.js2.yimg.com/us.js.yimg.com/lib/common/widgets/2/container/container_core_2.1.1.js"></script> 
+<script  type="text/javascript" src="scripts/proto.js"></script>
+<script  type="text/javascript" src="scripts/mootools.v1.11.js"></script>
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.2.2/build/reset-fonts-grids/reset-fonts-grids.css">
+<link href="css/yui.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript">
+
+
+YAHOO.proto.Config = {
+	// ".first, li[id=bill]": {
+	".first": {
+		Fade: {
+			opacity:         { to: 0.0 },
+			duration:        2,
+			animationMethod: YAHOO.util.Easing.easeOut
+		},
+		// Move: {
+		// 	by:              [300, 0],
+		// 	duration:        3,
+		// 	animationMethod: YAHOO.util.Easing.easeOut
+		// }
+	},
+	// ".second": {
+	// 	Move: {
+	// 		by:              [400, 0],
+	// 		duration:        1,
+	// 		animationMethod: YAHOO.util.Easing.easeOut
+	// 	}
+	// },
+	"li[id=bill]": {
+		Move: {
+			by:              [400, 0],
+			duration:        1,
+			animationMethod: YAHOO.util.Easing.easeOut
+		}
+	},
+
+	"li[id!=bill]": {
+		Move: {
+			by:              [200, 0],
+			duration:        2,
+			animationMethod: YAHOO.util.Easing.easeOut
+		}
+	},
+
+	".third": {
+		Drag: {
+			dropClass:    "drop-me"//,
+			// startDrag:    handleStartDrag, // will need some standard handlers here
+			// onDragDrop:   handleDragDrop,
+			// onDragEnter:  handleDragEnter,
+			// onDragOut:    handleDragOut,
+			// endDrag:      handleEndDrag		
+		}
+	}
+}
+
+var pageLoad = function() 
+{
+	new YAHOO.proto.Wiring();
+}
+YAHOO.util.Event.addListener(window, 'load', pageLoad);
+
+</script>
+
+</head>
+
+<body>
+<div id="doc" class="yui-t7">
+
+<div id="hd"><h1>Animation</h1></div>
+
+<div id="bd">
+
+	<div class="idmini clrfix" id="idcard-mini">
+	      <div class="icon"><img src="http://img.avatars.yahoo.com/users/1OcodbvxTAAIBJAFF8BKTNJN4Eg==.96.jpg" id="idmini-icon"/></div>
+	      <div class="desc">
+	         <p class="lbl">Project Author:</p>
+	         <p class="name"><a href="/portfolio/edit?_crumb=FqZ%2FyR2MEhs">Bill Scott</a></p>
+	         <p class="rating">21</p>
+	      </div>
+	   </div>
+	
+	
+<h2 >Some Items To Animate</h2>
+
+<ul>
+	<li class="first"><img width="75" height="75" 
+			src="images/thumb_2.jpg"/></li>
+	<li class="first"><img width="75" height="75" 
+			src="images/thumb_3.jpg"/></li>
+	<li class="first"><img cl width="75" height="75" 
+			src="images/thumb_4.jpg"/></li>
+	<li class="second"><img width="75" height="75" 		
+			src="images/thumb_5.jpg"/></li>
+	<li id="bill" class="second"><img width="75" height="75" 
+			src="images/thumb_6.jpg"/></li>
+	<li id="billy" class="second"><img width="75" height="75"
+			src="images/thumb_7.jpg"/></li>
+	<li class="second"><img id="new-item" width="75" height="75"
+			src="images/thumb_8.jpg"/></li>
+</ul>
+
+</div>
+</div>
+</body>
+</html>

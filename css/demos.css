@@ -1,0 +1,199 @@
+
+.idmini .icon {
+	float:left;
+/*	height:64px;*/
+	overflow:hidden;
+/*	width:64px;*/
+}
+.idmini .icon img {
+	height:120px;
+	width:120px;
+}
+.idmini .desc {
+	float:left;
+	margin-left:10px;
+}
+
+
+div.code {
+	font-size: 77%;
+	line-height:1em;
+	font-family:courier;
+}
+div.example-code {
+	border:1px dashed ;
+	clear:both;
+	font-family:courier;
+	
+	background-color:#F9F9F9;
+	border:1px dashed #2F6FAB;
+	color:black;
+	line-height:1.1em;
+	margin:8px 0px 8px 0px;
+	padding:1em;
+}
+div.example-code em {
+	font-size:11px;
+	color:gray;
+}
+
+.clrfix {
+	clear:both;
+}
+.yui-t1 .yui-b {
+	margin-top:8px;
+}
+.yui-t1 #yui-main .yui-b{
+}
+
+.yui-b h2, .yui-b h3 {
+	margin-top:0em; margin-bottom:0; padding:0 0 0 0; border-top:0px none;
+}
+
+#doc.demo h2 {
+	margin-bottom:4px;
+}
+
+.demo .example-live {
+	float:left;
+	border:1px dashed #2F6FAB;
+	padding:1em;
+	
+}
+
+.narrow-instruction, .med-instruction, .wide-instruction {
+	float:left;
+	margin:0px 0px 0px 10px;
+	padding:0px;
+}
+.wide-instruction {
+	width:400px;
+}
+.med-instruction {
+	width:300px;
+}
+.narrow-instruction {
+	width:200px;
+}
+.wide-instruction p, .med-instruction p, .narrow-instruction p {
+	margin:0px;
+	padding:0px;
+}
+
+.full-instruction {
+	clear:both;
+	float:none;
+	margin-left:0px;
+	width:auto;
+}
+
+.example-live {
+	float:left;
+}
+
+#move-demo .example-live {
+	overflow:hidden;
+}
+#move-demo .example-live #avatar {
+	position:relative;
+	left:-95px;
+}
+#click-demo #multiple p {
+	margin:0px 0px 4px 0px;
+}
+#click-demo #multiple ul {
+	margin-left: 0px;
+}
+#click-demo #multiple li {
+	list-style: none;
+	margin-left: 0px;
+	margin-bottom:2px;
+}
+
+#coloranimate-demo #box-target {
+	width:96px;height:96px;border:8px solid #2F6FAB;
+}
+
+#blur-demo input, #focus-demo input {
+	display:block;
+	margin-bottom:10px;
+	width:180px;
+}
+
+#dragdrop-demo #send-it, #dragdrop-demo #like-it, #dragdrop-demo #love-it, #dragdrop-demo #people, #dragdrop-demo #things {
+	width:75px;
+	height:75px;
+}
+#dragdrop-demo .wide-instruction, #fetchhtml-demo .wide-instruction {
+	float:none;
+	margin-left:0px;
+	width:auto;
+}
+#dragdrop-demo .example-live, #fetchhtml-demo .example-live {
+	float:none;
+}
+#dragdrop-demo .wide-instruction p, #fetchhtml-demo .wide-instruction p {
+	margin-top:8px;
+}
+#fetchhtml-demo #box-target {
+	width:100%;height:auto;
+}
+
+.not-dragged-over, .not-over {
+	border:3px dotted #2F6FAB;
+}
+.dragged-over, .over {
+	border:3px solid blue;
+}
+
+.selected {
+	border:2px dotted #2F6FAB;
+}
+
+.not-selected {
+	border:2px solid white;
+}
+#hide-demo #my-pix div, #show-demo #my-pix div {
+	float:left;
+	margin:20px;
+}
+#hide-demo #my-pix a, #show-demo #my-pix a {
+	display:block;
+	text-align:center;
+}
+
+#popup-demo .header {
+	background-color: #ddd;
+	padding:3px;
+	margin:6px 0px 0px 0px;
+}
+
+.closed-title {
+	background-color: #ddd;
+	padding:3px;
+	margin:6px 0px 0px 0px;
+	clear:both;
+	padding-left:20px;			
+	background: #DDDDDD url(http://us.i1.yimg.com/us.yimg.com/i/nt/ic/ut/bsc/menuarorght8_nrm_1.gif) 
+					no-repeat scroll 0px 5px;
+}
+
+.opened-title {
+	background-color: #ddd;
+	padding:3px;
+	margin:6px 0px 0px 0px;
+	clear:both;
+	padding-left:20px;			
+	background: #DDDDDD url(http://us.i1.yimg.com/us.yimg.com/i/nt/ic/ut/bsc/menuarodwn8_nrm_1.gif) 
+					no-repeat scroll 0px 5px;
+}
+
+#fetchhtml-demo .opened-title {
+	background: none;
+	background-color: #DDD;
+	padding-left: 0px;
+}
+
+#open-demo .example-live #avatar{
+	display:none;
+}

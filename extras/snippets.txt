@@ -1,0 +1,68 @@
+// bring focus up when mouse is over an object
+{
+  Fade: {opacity: {to:0.5}},
+  Mouseover:{
+    onMouseover:{
+      Fade:{opacity:{to:1.0}}
+    }  
+  },
+  Mouseout:{
+    onMouseout:{
+      Fade:{opacity:{to:0.5}}
+    }  
+  }
+}
+
+// need a way to reference document?
+{
+  Mousemove:{
+    onMousemove:{
+      Spotlight:{}
+    }  
+  }
+}
+
+a:contains(About Google)
+{
+Mouseover: {
+   onMouseover:{
+     Animate: {
+       fontSize: {to: 18},
+       duration: 0.1
+
+     }
+   }
+},
+Mouseout: {
+   onMouseout:{
+     Animate: {
+       fontSize: {to: 13},
+       duration: 0.1
+     }
+   }
+}
+}
+
+
+{
+Mouseover: {
+   onMouseover:{
+     Animate: {
+       width: {by: 100}, 
+       height: {by: 100},
+       duration: 0.1
+
+     }
+   }
+},
+Mouseout: {
+   onMouseout:{
+     Animate: {
+       width: {by: -100},
+       height: {by: -100},
+       duration: 0.1
+     }
+   }
+}
+}
+

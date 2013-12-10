@@ -1,0 +1,98 @@
+/* For resize panel */
+
+.yui-panel-container .yui-resizepanel .bd {
+    overflow: auto;
+	background-color:#D8E0B2;
+}
+
+.yui-panel-container .yui-resizepanel .ft {
+	padding:0px;
+	height:10px;
+	background-color: #B9CC75;
+}
+.yui-panel-container .yui-resizepanel .hd {
+	background-color:#B9CC75;
+	color:black;
+}
+.yui-panel .container-close {
+	background: transparent url(http://us.i1.yimg.com/us.yimg.com/i/nt/ic/ut/alt3/close12_1.gif) no-repeat scroll 0%;
+}
+/*
+    PLEASE NOTE: It is necessary to toggle the "overflow" property 
+    of the body element between "hidden" and "auto" in order to 
+    prevent the scrollbars from remaining visible after the the 
+    ResizePanel is hidden.  For more information on this issue, 
+    read the comments in the "container-core.css" file.
+*/
+
+.yui-panel-container.hide-scrollbars .yui-resizepanel .bd {
+    overflow: hidden;
+}
+.yui-panel-container.show-scrollbars .yui-resizepanel .bd {
+    overflow: auto;
+}		
+/*
+    PLEASE NOTE: It is necessary to set the "overflow" property of
+    the underlay element to "visible" in order for the 
+    scrollbars on the body of a ResizePanel instance to be 
+    visible.  By default the "overflow" property of the underlay 
+    element is set to "auto" when a Panel is made visible on
+    Gecko for Mac OS X to prevent scrollbars from poking through
+    it on that browser + platform combintation.  For more 
+    information on this issue, read the comments in the 
+    "container-core.css" file.
+*/
+
+.yui-panel-container.show-scrollbars .underlay {
+    overflow: visible;
+}
+
+.yui-resizepanel .resizehandle { 
+     position: absolute; 
+     width: 10px; 
+     height: 10px; 
+     right: 0;
+     bottom: 0; 
+     margin: 0; 
+     padding: 0; 
+     z-index: 1; 
+     background: url(http://protoscript.com/images/corner_resize.gif) left bottom no-repeat;
+     cursor: se-resize;
+ }
+
+
+div#protoscripter {
+	margin:12px;font-family:arial;font-size:12px; width:95%;height:90%;
+}
+
+div#protoscripter label {
+	display:block;text-align:left;padding:0px;width:auto;
+}
+
+input#the-query-field {
+	float:left;font-family:courier;padding:4px;border:1px solid gray;width:80%;
+}
+
+button#find-elems {
+	border:1px solid gray;float:left;margin-top:2px;margin-left:10px;
+}
+
+textarea#the-script-field {
+	line-height:1em;overflow:visible;font-family:courier;padding:4px;border:1px solid gray;width:80%;height:100%;float:left;
+}
+
+button#execute-script-button {
+	float:left;border:1px solid gray;margin-top:4px;
+}
+
+div#script-area {
+	margin-top:10px;height:80%;
+}
+/* ======== THIS MUST BE AT THE END ======== */
+/* startpsbm.js looks to see if the div associated with this id */
+/* has been populated to know if the CSS has loaded */
+
+div#yahoo-psbm-ccs-has-been-loaded {
+	width:99px;
+	height:99px;
+}
